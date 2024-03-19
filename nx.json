@@ -13,12 +13,10 @@
       "inputs": ["default", "^default"]
     },
     "nx-release-publish": {
-      "executor": "@nx/js:release-publish",
       "options": {
         "packageRoot": "dist/packages/{projectName}",
-        "registry": "https://registry.npmjs.org/"
-      },
-      "dependsOn": ["^build"]
+        "registry": "http://localhost:4873/"
+      }
     }
   },
   "plugins": [
@@ -36,7 +34,7 @@
     }
   ],
   "release": {
-    "projects": ["*", "!private-nestjs-library"],
+    "projects": ["packages/*", "!packages/private-nestjs-library"],
     "projectsRelationship": "independent",
     "changelog": {
       "projectChangelogs": {
@@ -44,9 +42,10 @@
       }
     },
     "version": {
-      "conventionalCommits": true,
+      "conventionalCommits": false,
       "generatorOptions": {
-        "skipLockFileUpdate": true
+        "skipLockFileUpdate": true,
+        "currentVersionResolver": "git-tag"
       }
     },
     "git": {
