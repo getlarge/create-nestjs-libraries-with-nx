@@ -1,0 +1,26 @@
+{
+  "name": "public-nestjs-library",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/public-nestjs-library/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/public-nestjs-library",
+        "tsConfig": "packages/public-nestjs-library/tsconfig.lib.json",
+        "packageJson": "packages/public-nestjs-library/package.json",
+        "main": "packages/public-nestjs-library/src/index.ts",
+        "assets": ["packages/public-nestjs-library/*.md"],
+        "external": "none"
+      }
+    },
+    "nx-release-publish": {
+      "options": {
+        "packageRoot": "dist/{projectRoot}"
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,20 @@
+{
+  "name": "private-nestjs-library",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/private-nestjs-library/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/private-nestjs-library",
+        "tsConfig": "packages/private-nestjs-library/tsconfig.lib.json",
+        "packageJson": "packages/private-nestjs-library/package.json",
+        "main": "packages/private-nestjs-library/src/index.ts",
+        "assets": ["packages/private-nestjs-library/*.md"]
+      }
+    }
+  },
+  "tags": []
+}
